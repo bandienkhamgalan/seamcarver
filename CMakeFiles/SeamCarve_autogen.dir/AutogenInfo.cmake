@@ -1,0 +1,33 @@
+# Directories and files
+set(AM_CMAKE_BINARY_DIR "/Users/bandi/Desktop/seamcarve/")
+set(AM_CMAKE_SOURCE_DIR "/Users/bandi/Desktop/seamcarve/")
+set(AM_CMAKE_CURRENT_SOURCE_DIR "/Users/bandi/Desktop/seamcarve/")
+set(AM_CMAKE_CURRENT_BINARY_DIR "/Users/bandi/Desktop/seamcarve/")
+set(AM_CMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE "")
+set(AM_BUILD_DIR "/Users/bandi/Desktop/seamcarve/SeamCarve_autogen")
+set(AM_SOURCES "/Users/bandi/Desktop/seamcarve/RGBAImage.cpp;/Users/bandi/Desktop/seamcarve/JPEG.cpp;/Users/bandi/Desktop/seamcarve/main.cpp;/Users/bandi/Desktop/seamcarve/MainWindow.cpp;/Users/bandi/Desktop/seamcarve/GLImageWidget.cpp;/Users/bandi/Desktop/seamcarve/CCocoaGLContext.mm;/Users/bandi/Desktop/seamcarve/CLSeamCarver.cpp;/Users/bandi/Desktop/seamcarve/SeamCarverWidget.cpp")
+set(AM_HEADERS "")
+# Qt environment
+set(AM_QT_VERSION_MAJOR "5")
+set(AM_QT_MOC_EXECUTABLE "/Users/bandi/Qt/5.9.2/clang_64/bin/moc")
+set(AM_QT_UIC_EXECUTABLE "/Users/bandi/Qt/5.9.2/clang_64/bin/uic")
+set(AM_QT_RCC_EXECUTABLE )
+# MOC settings
+set(AM_MOC_SKIP "")
+set(AM_MOC_DEFINITIONS "QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB")
+set(AM_MOC_INCLUDES "/Users/bandi/Desktop/seamcarve;/Users/bandi/Desktop/seamcarve/SeamCarve_autogen/include;/Users/bandi/Qt/5.9.2/clang_64/include/QtPlatformHeaders;/Users/bandi/Qt/5.9.2/clang_64/lib/QtWidgets.framework;/Users/bandi/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers;/Users/bandi/Qt/5.9.2/clang_64/lib/QtGui.framework;/Users/bandi/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers;/System/Library/Frameworks/OpenGL.framework/Headers;/Users/bandi/Qt/5.9.2/clang_64/lib/QtCore.framework;/Users/bandi/Qt/5.9.2/clang_64/lib/QtCore.framework/Headers;/Users/bandi/Qt/5.9.2/clang_64/./mkspecs/macx-clang")
+set(AM_MOC_OPTIONS "")
+set(AM_MOC_RELAXED_MODE "FALSE")
+set(AM_MOC_DEPEND_FILTERS "")
+set(AM_MOC_PREDEFS_CMD "")
+# UIC settings
+set(AM_UIC_SKIP "")
+set(AM_UIC_TARGET_OPTIONS "")
+set(AM_UIC_OPTIONS_FILES "")
+set(AM_UIC_OPTIONS_OPTIONS "")
+set(AM_UIC_SEARCH_PATHS "")
+# RCC settings
+set(AM_RCC_SOURCES  )
+set(AM_RCC_INPUTS )
+set(AM_RCC_OPTIONS_FILES )
+set(AM_RCC_OPTIONS_OPTIONS )

@@ -1,0 +1,62 @@
+{
+  "variant": {
+    "label": "Debug",
+    "keywordSettings": {
+      "buildType": "debug"
+    },
+    "description": "Emit debug information without performing optimizations"
+  },
+  "activeEnvironments": [],
+  "codeModel": {
+    "configurations": [
+      {
+        "name": "Debug",
+        "projects": [
+          {
+            "buildDirectory": "/Users/bandi/Desktop/seamcarve/build",
+            "name": "SeamCarve",
+            "sourceDirectory": "/Users/bandi/Desktop/seamcarve",
+            "targets": [
+              {
+                "artifacts": [
+                  "/Users/bandi/Desktop/seamcarve/build/SeamCarve"
+                ],
+                "buildDirectory": "/Users/bandi/Desktop/seamcarve/build",
+                "fileGroups": [
+                  {
+                    "compileFlags": "-g   -Wall -Werror -std=gnu++11",
+                    "includePath": [
+                      {
+                        "path": "/Users/bandi/Desktop/seamcarve/build"
+                      },
+                      {
+                        "path": "/Users/bandi/Desktop/seamcarve"
+                      }
+                    ],
+                    "isGenerated": false,
+                    "language": "CXX",
+                    "sources": [
+                      "RGBAImage.cpp",
+                      "JPEG.cpp",
+                      "main.cpp"
+                    ]
+                  }
+                ],
+                "fullName": "SeamCarve",
+                "linkLanguageFlags": "-g",
+                "linkLibraries": "-framework OpenCL /usr/local/lib/libjpeg.dylib",
+                "linkerLanguage": "CXX",
+                "name": "SeamCarve",
+                "sourceDirectory": "/Users/bandi/Desktop/seamcarve",
+                "type": "EXECUTABLE"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "cookie": "0.8724920080385556",
+    "inReplyTo": "codemodel",
+    "type": "reply"
+  }
+}
