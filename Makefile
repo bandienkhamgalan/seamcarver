@@ -217,33 +217,6 @@ GLImageWidget.cpp.s:
 	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/GLImageWidget.cpp.s
 .PHONY : GLImageWidget.cpp.s
 
-JPEG.o: JPEG.cpp.o
-
-.PHONY : JPEG.o
-
-# target to build an object file
-JPEG.cpp.o:
-	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/JPEG.cpp.o
-.PHONY : JPEG.cpp.o
-
-JPEG.i: JPEG.cpp.i
-
-.PHONY : JPEG.i
-
-# target to preprocess a source file
-JPEG.cpp.i:
-	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/JPEG.cpp.i
-.PHONY : JPEG.cpp.i
-
-JPEG.s: JPEG.cpp.s
-
-.PHONY : JPEG.s
-
-# target to generate assembly for a file
-JPEG.cpp.s:
-	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/JPEG.cpp.s
-.PHONY : JPEG.cpp.s
-
 MainWindow.o: MainWindow.cpp.o
 
 .PHONY : MainWindow.o
@@ -270,33 +243,6 @@ MainWindow.s: MainWindow.cpp.s
 MainWindow.cpp.s:
 	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/MainWindow.cpp.s
 .PHONY : MainWindow.cpp.s
-
-RGBAImage.o: RGBAImage.cpp.o
-
-.PHONY : RGBAImage.o
-
-# target to build an object file
-RGBAImage.cpp.o:
-	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/RGBAImage.cpp.o
-.PHONY : RGBAImage.cpp.o
-
-RGBAImage.i: RGBAImage.cpp.i
-
-.PHONY : RGBAImage.i
-
-# target to preprocess a source file
-RGBAImage.cpp.i:
-	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/RGBAImage.cpp.i
-.PHONY : RGBAImage.cpp.i
-
-RGBAImage.s: RGBAImage.cpp.s
-
-.PHONY : RGBAImage.s
-
-# target to generate assembly for a file
-RGBAImage.cpp.s:
-	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/RGBAImage.cpp.s
-.PHONY : RGBAImage.cpp.s
 
 SeamCarve_autogen/mocs_compilation.o: SeamCarve_autogen/mocs_compilation.cpp.o
 
@@ -398,15 +344,9 @@ help:
 	@echo "... GLImageWidget.o"
 	@echo "... GLImageWidget.i"
 	@echo "... GLImageWidget.s"
-	@echo "... JPEG.o"
-	@echo "... JPEG.i"
-	@echo "... JPEG.s"
 	@echo "... MainWindow.o"
 	@echo "... MainWindow.i"
 	@echo "... MainWindow.s"
-	@echo "... RGBAImage.o"
-	@echo "... RGBAImage.i"
-	@echo "... RGBAImage.s"
 	@echo "... SeamCarve_autogen/mocs_compilation.o"
 	@echo "... SeamCarve_autogen/mocs_compilation.i"
 	@echo "... SeamCarve_autogen/mocs_compilation.s"

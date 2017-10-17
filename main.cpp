@@ -7,8 +7,6 @@
 #include <array>
 #include <stdexcept>
 #include "cl.hpp"
-#include "RGBAImage.hpp"
-#include "JPEG.hpp"
 
 using namespace std;
 

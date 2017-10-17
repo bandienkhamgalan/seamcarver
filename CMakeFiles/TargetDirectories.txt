@@ -1,4 +1,0 @@
-/Users/bandi/Desktop/seamcarve/CMakeFiles/rebuild_cache.dir
-/Users/bandi/Desktop/seamcarve/CMakeFiles/edit_cache.dir
-/Users/bandi/Desktop/seamcarve/CMakeFiles/SeamCarve.dir
-/Users/bandi/Desktop/seamcarve/CMakeFiles/SeamCarve_autogen.dir

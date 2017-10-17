@@ -14,8 +14,7 @@ find_package(Qt5Widgets REQUIRED)
 
 find_package (OpenCL REQUIRED)
 
-find_library(jpeg jpeg)
-add_executable(SeamCarve RGBAImage.cpp JPEG.cpp main.cpp MainWindow.cpp GLImageWidget.cpp CCocoaGLContext.mm CLSeamCarver.cpp SeamCarverWidget.cpp)
+add_executable(SeamCarve main.cpp MainWindow.cpp GLImageWidget.cpp CCocoaGLContext.mm CLSeamCarver.cpp SeamCarverWidget.cpp)
 
 if(APPLE)
 	foreach(directory ${Qt5Widgets_INCLUDE_DIRS})
@@ -30,4 +29,4 @@ if(APPLE)
 endif()
 
 target_compile_options(SeamCarve PRIVATE -Wall -Werror) 
-target_link_libraries(SeamCarve ${OpenCL_LIBRARIES} ${jpeg} Qt5::Widgets)
+target_link_libraries(SeamCarve ${OpenCL_LIBRARIES} Qt5::Widgets)
