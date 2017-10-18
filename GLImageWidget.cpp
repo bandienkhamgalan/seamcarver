@@ -4,6 +4,7 @@
 #include <QOpenGLBuffer>
 #include <QOpenGLTexture>
 #include <QApplication>
+#include "glShaders.hpp"
 #include "GLImageWidget.hpp"
 
 using namespace std;
@@ -86,8 +87,8 @@ void GLImageWidget::initializeGL() {
 	glFunctions = QOpenGLContext::currentContext()->versionFunctions<QOpenGLFunctions_3_2_Core>();
 	glFunctions->glClearColor(0.0, 0.0, 0.0, 1.0);
 
-	if(!program.addShaderFromSourceFile(QOpenGLShader::Vertex, "shader.vert")
-		|| !program.addShaderFromSourceFile(QOpenGLShader::Fragment, "shader.frag")) {
+	if(!program.addShaderFromSourceCode(QOpenGLShader::Vertex, GLShaders::vertexShader)
+		|| !program.addShaderFromSourceCode(QOpenGLShader::Fragment, GLShaders::fragmentShader)) {
 		throw runtime_error("Could not compile OpenGL shaders: " + program.log().toStdString());
 	}
 	program.link();

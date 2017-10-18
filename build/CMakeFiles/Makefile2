@@ -54,19 +54,19 @@ RM = /usr/local/Cellar/cmake/3.9.0/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/bandi/Desktop/seamcarve
+CMAKE_SOURCE_DIR = /Users/bandi/Desktop/seamcarve_Windows
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/bandi/Desktop/seamcarve/build
+CMAKE_BINARY_DIR = /Users/bandi/Desktop/seamcarve_Windows/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/SeamCarve.dir
 
 # All Build rule for target.
-CMakeFiles/SeamCarve.dir/all:
+CMakeFiles/SeamCarve.dir/all: CMakeFiles/SeamCarve_autogen.dir/all
 	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/depend
 	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/bandi/Desktop/seamcarve/build/CMakeFiles --progress-num=1,2,3,4 "Built target SeamCarve"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target SeamCarve"
 .PHONY : CMakeFiles/SeamCarve.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/SeamCarve.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SeamCarve.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bandi/Desktop/seamcarve/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles 9
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/SeamCarve.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bandi/Desktop/seamcarve/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles 0
 .PHONY : CMakeFiles/SeamCarve.dir/rule
 
 # Convenience name for target.
@@ -93,6 +93,38 @@ CMakeFiles/SeamCarve.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/SeamCarve.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/SeamCarve_autogen.dir
+
+# All Build rule for target.
+CMakeFiles/SeamCarve_autogen.dir/all:
+	$(MAKE) -f CMakeFiles/SeamCarve_autogen.dir/build.make CMakeFiles/SeamCarve_autogen.dir/depend
+	$(MAKE) -f CMakeFiles/SeamCarve_autogen.dir/build.make CMakeFiles/SeamCarve_autogen.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles --progress-num=9 "Built target SeamCarve_autogen"
+.PHONY : CMakeFiles/SeamCarve_autogen.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/SeamCarve_autogen.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/SeamCarve_autogen.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles 0
+.PHONY : CMakeFiles/SeamCarve_autogen.dir/rule
+
+# Convenience name for target.
+SeamCarve_autogen: CMakeFiles/SeamCarve_autogen.dir/rule
+
+.PHONY : SeamCarve_autogen
+
+# clean rule for target.
+CMakeFiles/SeamCarve_autogen.dir/clean:
+	$(MAKE) -f CMakeFiles/SeamCarve_autogen.dir/build.make CMakeFiles/SeamCarve_autogen.dir/clean
+.PHONY : CMakeFiles/SeamCarve_autogen.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/SeamCarve_autogen.dir/clean
 
 .PHONY : clean
 

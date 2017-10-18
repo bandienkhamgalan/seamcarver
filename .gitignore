@@ -1,1 +1,5 @@
-CMakeFiles/
+build/
+bin/
+.vscode/
+.vs/
+.DS_Store

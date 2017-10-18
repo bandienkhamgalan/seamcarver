@@ -4,16 +4,38 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/bandi/Desktop/seamcarve/JPEG.cpp" "/Users/bandi/Desktop/seamcarve/build/CMakeFiles/SeamCarve.dir/JPEG.cpp.o"
-  "/Users/bandi/Desktop/seamcarve/RGBAImage.cpp" "/Users/bandi/Desktop/seamcarve/build/CMakeFiles/SeamCarve.dir/RGBAImage.cpp.o"
-  "/Users/bandi/Desktop/seamcarve/main.cpp" "/Users/bandi/Desktop/seamcarve/build/CMakeFiles/SeamCarve.dir/main.cpp.o"
+  "/Users/bandi/Desktop/seamcarve_Windows/CCocoaGLContext.mm" "/Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles/SeamCarve.dir/CCocoaGLContext.mm.o"
+  "/Users/bandi/Desktop/seamcarve_Windows/CLSeamCarver.cpp" "/Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles/SeamCarve.dir/CLSeamCarver.cpp.o"
+  "/Users/bandi/Desktop/seamcarve_Windows/GLImageWidget.cpp" "/Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles/SeamCarve.dir/GLImageWidget.cpp.o"
+  "/Users/bandi/Desktop/seamcarve_Windows/MainWindow.cpp" "/Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles/SeamCarve.dir/MainWindow.cpp.o"
+  "/Users/bandi/Desktop/seamcarve_Windows/build/SeamCarve_autogen/mocs_compilation.cpp" "/Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles/SeamCarve.dir/SeamCarve_autogen/mocs_compilation.cpp.o"
+  "/Users/bandi/Desktop/seamcarve_Windows/SeamCarverWidget.cpp" "/Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles/SeamCarve.dir/SeamCarverWidget.cpp.o"
+  "/Users/bandi/Desktop/seamcarve_Windows/main.cpp" "/Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles/SeamCarve.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
+
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_CXX
+  "QT_CORE_LIB"
+  "QT_GUI_LIB"
+  "QT_WIDGETS_LIB"
+  )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "."
   "../"
+  "SeamCarve_autogen/include"
+  "/Users/bandi/Qt/5.9.2/clang_64/include/QtPlatformHeaders"
+  "/System/Library/Frameworks/OpenCL.framework"
+  "/Users/bandi/Qt/5.9.2/clang_64/lib/QtWidgets.framework"
+  "/Users/bandi/Qt/5.9.2/clang_64/lib/QtWidgets.framework/Headers"
+  "/Users/bandi/Qt/5.9.2/clang_64/lib/QtGui.framework"
+  "/Users/bandi/Qt/5.9.2/clang_64/lib/QtGui.framework/Headers"
+  "/System/Library/Frameworks/OpenGL.framework/Headers"
+  "/Users/bandi/Qt/5.9.2/clang_64/lib/QtCore.framework"
+  "/Users/bandi/Qt/5.9.2/clang_64/lib/QtCore.framework/Headers"
+  "/Users/bandi/Qt/5.9.2/clang_64/./mkspecs/macx-clang"
   )
 
 # Targets to which this target links.

@@ -12,7 +12,10 @@
 	#include <OpenCL/cl_gl_ext.h>
 	#include <OpenGL/OpenGL.h>
 	#include <OpenCL/OpenCL.h>
+#elif _WIN32
+	#include <QWGLNativeContext>
 #endif
+
 
 using namespace std;
 
@@ -162,16 +165,51 @@ void SeamCarverWidget::SetupNewCLSeamCarver() {
 		clGetGLContextInfoAPPLE(context(), glContext, CL_CGL_DEVICE_FOR_CURRENT_VIRTUAL_SCREEN_APPLE, sizeof(cl_device_id), &deviceId, NULL);
 		cl::Device device(deviceId);
 		cout << device.getInfo<CL_DEVICE_NAME>() << endl;
-	#endif
+		
+		cl_int err;
+		cl::BufferGL imageBuffer(context, CL_MEM_READ_WRITE, imageWidget->GetImageBuffer().bufferId(), &err);
+		if(err != CL_SUCCESS) {
+			cerr << err << endl;
+			throw runtime_error("Failed to construct shared OpenCL image buffer");
+		}
 	
-	cl_int err;
-	cl::BufferGL::BufferGL imageBuffer(context, CL_MEM_READ_WRITE, imageWidget->GetImageBuffer().bufferId(), &err);
-	if(err != CL_SUCCESS) {
-		cerr << err << endl;
-		throw runtime_error("Failed to construct shared OpenCL image buffer");
-	}
+		seamCarver = make_unique<CLSeamCarver>(context, device, imageBuffer, imageWidget->GetImageSize().width(), imageWidget->GetImageSize().height());	
+	#else
+		auto nativeContext = contextVariant.value<QWGLNativeContext>();
+		HGLRC glContext = nativeContext.context();
 
-	seamCarver = make_unique<CLSeamCarver>(context, device, imageBuffer, imageWidget->GetImageSize().width(), imageWidget->GetImageSize().height());
+		vector<cl::Platform> platforms;
+		if(cl::Platform::get(&platforms) != CL_SUCCESS) {
+			throw runtime_error("Failed to get OpenCL platforms");
+		}
+
+		for(auto& platform : platforms) {
+			vector<cl::Device> devices;
+			
+			if(platform.getDevices(CL_DEVICE_TYPE_ALL, &devices) != CL_SUCCESS) {
+				string name;
+				platform.getInfo(CL_PLATFORM_NAME, &name);
+				cerr << "Failed to get devices for " << name << " platform";
+				exit(-1);
+			}
+	
+			for(auto& device : devices) {
+				cout << device.getInfo<CL_DEVICE_NAME>() << " " << device.getInfo<CL_DEVICE_EXTENSIONS>() << endl;
+			}
+			/*
+			cl_context_properties properties[] = { 	CL_CONTEXT_PLATFORM, (cl_context_properties)platform(),
+													CL_GL_CONTEXT_KHR, (cl_context_properties)glContext, 0 };
+			size_t bytes = 0;
+			clGetGLContextInfoKHR(properties, CL_DEVICES_FOR_GL_CONTEXT_KHR, 0, NULL, &bytes);
+			size_t devNum = bytes/sizeof(cl_device_id);
+			std::vector<cl_device_id> devs(devNum);
+			clGetGLContextInfoKHR(properties, CL_DEVICES_FOR_GL_CONTEXT_KHR, bytes, devs.data(), NULL);
+			//looping over all devices
+			for(auto deviceId : devs) {
+				cout << cl::Device(deviceId).getInfo<CL_DEVICE_NAME>() << endl;
+			} */
+		}
+	#endif
 }
 
 void SeamCarverWidget::SetImage(QImage&& image) {

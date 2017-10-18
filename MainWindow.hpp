@@ -1,4 +1,5 @@
 #pragma once
+#include "ui_MainWindow.h"
 #include "SeamCarverWidget.hpp"
 #include <QMainWindow>
 #include <QString>

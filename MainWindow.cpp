@@ -1,4 +1,3 @@
-#include "ui_MainWindow.h"
 #include "MainWindow.hpp"
 #include <iostream>
 #include <QTimer>

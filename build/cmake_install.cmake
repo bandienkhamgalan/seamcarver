@@ -1,4 +1,4 @@
-# Install script for directory: /Users/bandi/Desktop/seamcarve
+# Install script for directory: /Users/bandi/Desktop/seamcarve_Windows
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,6 +27,27 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "/Users/bandi/Desktop/seamcarve_Windows/release/SeamCarve")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+file(INSTALL DESTINATION "/Users/bandi/Desktop/seamcarve_Windows/release" TYPE EXECUTABLE FILES "/Users/bandi/Desktop/seamcarve_Windows/build/SeamCarve")
+  if(EXISTS "$ENV{DESTDIR}/Users/bandi/Desktop/seamcarve_Windows/release/SeamCarve" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/bandi/Desktop/seamcarve_Windows/release/SeamCarve")
+    execute_process(COMMAND /usr/bin/install_name_tool
+      -delete_rpath "/Users/bandi/Qt/5.9.2/clang_64/lib"
+      "$ENV{DESTDIR}/Users/bandi/Desktop/seamcarve_Windows/release/SeamCarve")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip" "$ENV{DESTDIR}/Users/bandi/Desktop/seamcarve_Windows/release/SeamCarve")
+    endif()
+  endif()
+endif()
+
 if(CMAKE_INSTALL_COMPONENT)
   set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
 else()
@@ -35,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/bandi/Desktop/seamcarve/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/bandi/Desktop/seamcarve_Windows/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

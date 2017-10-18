@@ -1,5 +1,4 @@
 #import <QCocoaNativeContext>
-
 #import "CCocoaGLContext.h"
 
 void * GetCocoaGLContext(void * x)

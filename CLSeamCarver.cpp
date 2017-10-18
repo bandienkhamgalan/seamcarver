@@ -1,6 +1,6 @@
 #include <iostream>
-#include <fstream>
 #include "CLSeamCarver.hpp"
+#include "clProgram.hpp"
 
 using namespace std;
 
@@ -104,18 +104,8 @@ vector<cl_uchar> CLSeamCarver::GetImageData() const {
 }
 
 cl::Program CLSeamCarver::constructProgram() const {
-	ifstream ifs("seam_carve.cl");
-	filebuf* pbuf = ifs.rdbuf();
-	size_t size = pbuf->pubseekoff(0,ifs.end,ifs.in);
-	pbuf->pubseekpos(0,ifs.in);
-	char* buffer = new char[size];
-	pbuf->sgetn(buffer, size);
-	ifs.close();
-	string source(buffer);
-	delete[] buffer;
-
 	cl_int err;
-	cl::Program::Program program(context, source, true, &err);
+	cl::Program program(context, CLProgram::program, true, &err);
 	if(err == CL_BUILD_PROGRAM_FAILURE) {
 		string log;
 		program.getBuildInfo(device, CL_PROGRAM_BUILD_LOG, &log);

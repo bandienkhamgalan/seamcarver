@@ -48,13 +48,59 @@ RM = /usr/local/Cellar/cmake/3.9.0/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/bandi/Desktop/seamcarve
+CMAKE_SOURCE_DIR = /Users/bandi/Desktop/seamcarve_Windows
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/bandi/Desktop/seamcarve/build
+CMAKE_BINARY_DIR = /Users/bandi/Desktop/seamcarve_Windows/build
 
 #=============================================================================
 # Targets provided globally by CMake.
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/Cellar/cmake/3.9.0/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/Cellar/cmake/3.9.0/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.9.0/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/Cellar/cmake/3.9.0/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.9.0/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/Cellar/cmake/3.9.0/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -80,9 +126,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bandi/Desktop/seamcarve/build/CMakeFiles /Users/bandi/Desktop/seamcarve/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles /Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bandi/Desktop/seamcarve/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bandi/Desktop/seamcarve_Windows/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,59 +169,180 @@ SeamCarve/fast:
 	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/build
 .PHONY : SeamCarve/fast
 
-JPEG.o: JPEG.cpp.o
+#=============================================================================
+# Target rules for targets named SeamCarve_autogen
 
-.PHONY : JPEG.o
+# Build rule for target.
+SeamCarve_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 SeamCarve_autogen
+.PHONY : SeamCarve_autogen
 
-# target to build an object file
-JPEG.cpp.o:
-	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/JPEG.cpp.o
-.PHONY : JPEG.cpp.o
+# fast build rule for target.
+SeamCarve_autogen/fast:
+	$(MAKE) -f CMakeFiles/SeamCarve_autogen.dir/build.make CMakeFiles/SeamCarve_autogen.dir/build
+.PHONY : SeamCarve_autogen/fast
 
-JPEG.i: JPEG.cpp.i
+CCocoaGLContext.o: CCocoaGLContext.mm.o
 
-.PHONY : JPEG.i
-
-# target to preprocess a source file
-JPEG.cpp.i:
-	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/JPEG.cpp.i
-.PHONY : JPEG.cpp.i
-
-JPEG.s: JPEG.cpp.s
-
-.PHONY : JPEG.s
-
-# target to generate assembly for a file
-JPEG.cpp.s:
-	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/JPEG.cpp.s
-.PHONY : JPEG.cpp.s
-
-RGBAImage.o: RGBAImage.cpp.o
-
-.PHONY : RGBAImage.o
+.PHONY : CCocoaGLContext.o
 
 # target to build an object file
-RGBAImage.cpp.o:
-	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/RGBAImage.cpp.o
-.PHONY : RGBAImage.cpp.o
+CCocoaGLContext.mm.o:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/CCocoaGLContext.mm.o
+.PHONY : CCocoaGLContext.mm.o
 
-RGBAImage.i: RGBAImage.cpp.i
+CCocoaGLContext.i: CCocoaGLContext.mm.i
 
-.PHONY : RGBAImage.i
+.PHONY : CCocoaGLContext.i
 
 # target to preprocess a source file
-RGBAImage.cpp.i:
-	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/RGBAImage.cpp.i
-.PHONY : RGBAImage.cpp.i
+CCocoaGLContext.mm.i:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/CCocoaGLContext.mm.i
+.PHONY : CCocoaGLContext.mm.i
 
-RGBAImage.s: RGBAImage.cpp.s
+CCocoaGLContext.s: CCocoaGLContext.mm.s
 
-.PHONY : RGBAImage.s
+.PHONY : CCocoaGLContext.s
 
 # target to generate assembly for a file
-RGBAImage.cpp.s:
-	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/RGBAImage.cpp.s
-.PHONY : RGBAImage.cpp.s
+CCocoaGLContext.mm.s:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/CCocoaGLContext.mm.s
+.PHONY : CCocoaGLContext.mm.s
+
+CLSeamCarver.o: CLSeamCarver.cpp.o
+
+.PHONY : CLSeamCarver.o
+
+# target to build an object file
+CLSeamCarver.cpp.o:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/CLSeamCarver.cpp.o
+.PHONY : CLSeamCarver.cpp.o
+
+CLSeamCarver.i: CLSeamCarver.cpp.i
+
+.PHONY : CLSeamCarver.i
+
+# target to preprocess a source file
+CLSeamCarver.cpp.i:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/CLSeamCarver.cpp.i
+.PHONY : CLSeamCarver.cpp.i
+
+CLSeamCarver.s: CLSeamCarver.cpp.s
+
+.PHONY : CLSeamCarver.s
+
+# target to generate assembly for a file
+CLSeamCarver.cpp.s:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/CLSeamCarver.cpp.s
+.PHONY : CLSeamCarver.cpp.s
+
+GLImageWidget.o: GLImageWidget.cpp.o
+
+.PHONY : GLImageWidget.o
+
+# target to build an object file
+GLImageWidget.cpp.o:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/GLImageWidget.cpp.o
+.PHONY : GLImageWidget.cpp.o
+
+GLImageWidget.i: GLImageWidget.cpp.i
+
+.PHONY : GLImageWidget.i
+
+# target to preprocess a source file
+GLImageWidget.cpp.i:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/GLImageWidget.cpp.i
+.PHONY : GLImageWidget.cpp.i
+
+GLImageWidget.s: GLImageWidget.cpp.s
+
+.PHONY : GLImageWidget.s
+
+# target to generate assembly for a file
+GLImageWidget.cpp.s:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/GLImageWidget.cpp.s
+.PHONY : GLImageWidget.cpp.s
+
+MainWindow.o: MainWindow.cpp.o
+
+.PHONY : MainWindow.o
+
+# target to build an object file
+MainWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/MainWindow.cpp.o
+.PHONY : MainWindow.cpp.o
+
+MainWindow.i: MainWindow.cpp.i
+
+.PHONY : MainWindow.i
+
+# target to preprocess a source file
+MainWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/MainWindow.cpp.i
+.PHONY : MainWindow.cpp.i
+
+MainWindow.s: MainWindow.cpp.s
+
+.PHONY : MainWindow.s
+
+# target to generate assembly for a file
+MainWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/MainWindow.cpp.s
+.PHONY : MainWindow.cpp.s
+
+SeamCarve_autogen/mocs_compilation.o: SeamCarve_autogen/mocs_compilation.cpp.o
+
+.PHONY : SeamCarve_autogen/mocs_compilation.o
+
+# target to build an object file
+SeamCarve_autogen/mocs_compilation.cpp.o:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/SeamCarve_autogen/mocs_compilation.cpp.o
+.PHONY : SeamCarve_autogen/mocs_compilation.cpp.o
+
+SeamCarve_autogen/mocs_compilation.i: SeamCarve_autogen/mocs_compilation.cpp.i
+
+.PHONY : SeamCarve_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+SeamCarve_autogen/mocs_compilation.cpp.i:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/SeamCarve_autogen/mocs_compilation.cpp.i
+.PHONY : SeamCarve_autogen/mocs_compilation.cpp.i
+
+SeamCarve_autogen/mocs_compilation.s: SeamCarve_autogen/mocs_compilation.cpp.s
+
+.PHONY : SeamCarve_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+SeamCarve_autogen/mocs_compilation.cpp.s:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/SeamCarve_autogen/mocs_compilation.cpp.s
+.PHONY : SeamCarve_autogen/mocs_compilation.cpp.s
+
+SeamCarverWidget.o: SeamCarverWidget.cpp.o
+
+.PHONY : SeamCarverWidget.o
+
+# target to build an object file
+SeamCarverWidget.cpp.o:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/SeamCarverWidget.cpp.o
+.PHONY : SeamCarverWidget.cpp.o
+
+SeamCarverWidget.i: SeamCarverWidget.cpp.i
+
+.PHONY : SeamCarverWidget.i
+
+# target to preprocess a source file
+SeamCarverWidget.cpp.i:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/SeamCarverWidget.cpp.i
+.PHONY : SeamCarverWidget.cpp.i
+
+SeamCarverWidget.s: SeamCarverWidget.cpp.s
+
+.PHONY : SeamCarverWidget.s
+
+# target to generate assembly for a file
+SeamCarverWidget.cpp.s:
+	$(MAKE) -f CMakeFiles/SeamCarve.dir/build.make CMakeFiles/SeamCarve.dir/SeamCarverWidget.cpp.s
+.PHONY : SeamCarverWidget.cpp.s
 
 main.o: main.cpp.o
 
@@ -210,15 +377,32 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... install"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... SeamCarve"
-	@echo "... JPEG.o"
-	@echo "... JPEG.i"
-	@echo "... JPEG.s"
-	@echo "... RGBAImage.o"
-	@echo "... RGBAImage.i"
-	@echo "... RGBAImage.s"
+	@echo "... SeamCarve_autogen"
+	@echo "... CCocoaGLContext.o"
+	@echo "... CCocoaGLContext.i"
+	@echo "... CCocoaGLContext.s"
+	@echo "... CLSeamCarver.o"
+	@echo "... CLSeamCarver.i"
+	@echo "... CLSeamCarver.s"
+	@echo "... GLImageWidget.o"
+	@echo "... GLImageWidget.i"
+	@echo "... GLImageWidget.s"
+	@echo "... MainWindow.o"
+	@echo "... MainWindow.i"
+	@echo "... MainWindow.s"
+	@echo "... SeamCarve_autogen/mocs_compilation.o"
+	@echo "... SeamCarve_autogen/mocs_compilation.i"
+	@echo "... SeamCarve_autogen/mocs_compilation.s"
+	@echo "... SeamCarverWidget.o"
+	@echo "... SeamCarverWidget.i"
+	@echo "... SeamCarverWidget.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
