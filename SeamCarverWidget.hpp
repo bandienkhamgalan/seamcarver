@@ -7,7 +7,6 @@
 #include <QImage>
 #include <QPushButton>
 #include <QProgressBar>
-#include <QLabel>
 #include <QString>
 #include <QFileInfo>
 #include "MainWindow.hpp"
@@ -29,6 +28,7 @@ public:
 
 private slots:
 	void on_applyButton_clicked();
+	void on_stopButton_clicked();
 	void on_widthPicker_valueChanged(int width);
 
 private:
@@ -47,8 +47,8 @@ private:
 	QSpinBox* heightPicker;
 	QPushButton* applyButton;
 	QProgressBar* progressBar;
-	QLabel* progressLabel;
 	QPushButton* stopButton;
 	std::unique_ptr<CLSeamCarver> seamCarver;
 	bool inOperation = false;
+	bool shouldStop = false;
 };

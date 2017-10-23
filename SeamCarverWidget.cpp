@@ -5,6 +5,7 @@
 #include <QResizeEvent>
 #include <QFormLayout>
 #include <QImageReader>
+#include <QLabel>
 #include <QWindow>
 #include <QFileDialog>
 #include "SeamCarverWidget.hpp"
@@ -75,10 +76,8 @@ SeamCarverWidget::SeamCarverWidget(QWidget* parent) : FileViewerWidget(parent) {
 	sp_retain.setRetainSizeWhenHidden(true);
 	progressBar->setSizePolicy(sp_retain);
 
-	progressLabel = new QLabel();
-	gridLayout->addWidget(progressLabel, 2, 3);
-
 	stopButton = new QPushButton("Stop");
+	connect(stopButton, &QPushButton::clicked, this, &SeamCarverWidget::on_stopButton_clicked);
 	gridLayout->addWidget(stopButton, 3, 3);
 
 	SetStatusVisible(false);
@@ -113,6 +112,10 @@ void SeamCarverWidget::on_applyButton_clicked() {
 	PerformSeamCarving();
 }
 
+void SeamCarverWidget::on_stopButton_clicked() {
+	shouldStop = true;
+}
+
 void SeamCarverWidget::on_widthPicker_valueChanged(int width) {
 	if(width != imageWidget->GetImageSize().width()) {
 		applyButton->setEnabled(true);
@@ -124,7 +127,6 @@ void SeamCarverWidget::SetEditorEnabled(bool enabled) {
 }
 void SeamCarverWidget::SetStatusVisible(bool visible) {
 	progressBar->setVisible(visible);
-	progressLabel->setVisible(visible);
 	stopButton->setVisible(visible);
 }
 
@@ -138,14 +140,16 @@ void SeamCarverWidget::PerformSeamCarving() {
 	SetStatusVisible(true);
 	progressBar->reset();
 	progressBar->setMaximum(seams);
-	for(int i = 0 ; i < seams ; ++i) {
+	for(int i = 0 ; i < seams && !shouldStop ; ++i) {
 		seamCarver->carve(1);
 		imageSize.setWidth(imageSize.width() - 1);
 		imageWidget->SetImageSize(imageSize);
+		widthPicker->setValue(imageSize.width());
 		UpdateImageWidgetSizeHint();
 		progressBar->setValue(i + 1);
 		QApplication::processEvents();
 	}
+	shouldStop = false;
 	widthPicker->setMaximum(widthPicker->value());
 	SetEditorEnabled(true);
 	SetStatusVisible(false);
