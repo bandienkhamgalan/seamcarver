@@ -1,6 +1,7 @@
 #include <QSurfaceFormat>
 #include <QApplication>
 #include "MainWindow.hpp"
+#include "SeamCarverWidget.hpp"
 #include <iostream>
 #include <fstream>
 #include <algorithm>
@@ -17,7 +18,7 @@ int main(int argc, char **argv) {
 	QSurfaceFormat::setDefaultFormat(glFormat);
 
 	QApplication a(argc, argv);
-    MainWindow w;
+    MainWindow w(new SeamCarverWidget);
     w.show();
 
 	return a.exec();

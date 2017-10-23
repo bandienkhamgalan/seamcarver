@@ -31,6 +31,7 @@ private:
 	QSize imageSize;
 	QSize sizeHintToReturn;
 	QOpenGLBuffer imageBuffer;
+	QOpenGLBuffer elementsBuffer;
 	QOpenGLTexture imageTexture;
 	QOpenGLShaderProgram program;
 	QOpenGLVertexArrayObject vao;

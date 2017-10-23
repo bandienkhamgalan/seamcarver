@@ -1,5 +1,9 @@
 build/
 bin/
+CMakeFiles/
+release/
+*.png
+*.jpg
 .vscode/
 .vs/
 .DS_Store

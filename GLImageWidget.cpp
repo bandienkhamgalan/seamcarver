@@ -10,7 +10,8 @@
 using namespace std;
 
 GLImageWidget::GLImageWidget(QWidget* parent)
-	: QOpenGLWidget(parent), imageSize(1, 1), imageTexture(QOpenGLTexture::TargetBuffer) {
+	: QOpenGLWidget(parent), imageSize(1, 1), elementsBuffer(QOpenGLBuffer::IndexBuffer),
+	imageTexture(QOpenGLTexture::TargetBuffer) {
 	sizePolicy().setHorizontalPolicy(QSizePolicy::Expanding);
 	sizePolicy().setVerticalPolicy(QSizePolicy::Expanding);
 }
@@ -112,7 +113,6 @@ void GLImageWidget::initializeGL() {
 
 	const GLuint elements[] = { 0, 1, 2,
 								0, 2, 3 };
-	QOpenGLBuffer elementsBuffer(QOpenGLBuffer::IndexBuffer);
 	elementsBuffer.create();
 	elementsBuffer.setUsagePattern(QOpenGLBuffer::StaticDraw);
 	elementsBuffer.bind();
@@ -135,7 +135,9 @@ void GLImageWidget::paintGL() {
 	vao.bind();
 	imageTexture.bind(0);
 
+	elementsBuffer.bind();
 	glFunctions->glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
 	GLint viewport[4];
 	glFunctions->glGetIntegerv(GL_VIEWPORT, viewport);
 	program.setUniformValue("screenWidth", viewport[2]);

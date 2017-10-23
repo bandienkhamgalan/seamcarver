@@ -8,17 +8,24 @@
 #include <QPushButton>
 #include <QProgressBar>
 #include <QLabel>
+#include <QString>
+#include <QFileInfo>
+#include "MainWindow.hpp"
 #include "GLImageWidget.hpp"
 #include "CLSeamCarver.hpp"
 
-class SeamCarverWidget : public QWidget {
+class SeamCarverWidget : public FileViewerWidget {
 	Q_OBJECT
 
 public:
-	explicit SeamCarverWidget(QWidget* parent);
+	SeamCarverWidget(QWidget* parent = nullptr);
 	void SetImage(QImage&& image);
 	void resizeEvent(QResizeEvent * event) override;
 	QImage GetImage() const;
+
+	/* FileViewerWidget overrides */
+	void OpenFileAction() override;
+	void SaveFileAction() override;
 
 private slots:
 	void on_applyButton_clicked();
@@ -32,6 +39,8 @@ private:
 	void SetEditorEnabled(bool enabled);
 	void SetStatusVisible(bool visible);
 
+	QString fileDialogFilterString;
+	QFileInfo imageFile;
 	GLImageWidget* imageWidget;
 	QBoxLayout* boxLayout;
 	QSpinBox* widthPicker;
@@ -41,4 +50,5 @@ private:
 	QLabel* progressLabel;
 	QPushButton* stopButton;
 	std::unique_ptr<CLSeamCarver> seamCarver;
+	bool inOperation = false;
 };

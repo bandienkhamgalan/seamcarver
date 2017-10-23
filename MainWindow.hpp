@@ -1,19 +1,25 @@
 #pragma once
 #include "ui_MainWindow.h"
-#include "SeamCarverWidget.hpp"
 #include <QMainWindow>
-#include <QString>
-#include <QFileInfo>
+#include <QWidget>
 
 namespace Ui {
 	class MainWindow;
 }
 
+class FileViewerWidget  : public QWidget {
+	Q_OBJECT
+public:
+	FileViewerWidget(QWidget* parent = nullptr) : QWidget(parent) {}
+	virtual void OpenFileAction() {}
+	virtual void SaveFileAction() {}
+};
+
 class MainWindow : public QMainWindow {
 	Q_OBJECT
 	
 public:
-	explicit MainWindow(QWidget* parent = nullptr);
+	explicit MainWindow(FileViewerWidget* fileViewerWidget, QWidget* parent = nullptr);
 	~MainWindow();
 
 private slots:
@@ -22,7 +28,5 @@ private slots:
 
 private:
 	Ui::MainWindow* ui;
-	SeamCarverWidget* seamCarverWidget;
-	QString fileDialogFilterString;
-	QFileInfo imageFile;
+	FileViewerWidget* fileViewerWidget;
 };
