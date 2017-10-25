@@ -98,14 +98,14 @@ void SeamCarverWidget::SaveFileAction() {
 		auto defaultFilename = QDir::cleanPath(imageFile.dir().absolutePath() + QDir::separator() + imageFile.baseName() + "_carved.png");
 		auto fileName = QFileDialog::getSaveFileName(this, "Save Image As", defaultFilename, fileDialogFilterString);
 		if(!fileName.isNull()) {
-			GetImage().save(fileName);
+			QSize imageSize = imageWidget->GetImageSize();
+			auto buffer = new cl_uchar[imageSize.width() * imageSize.height() * 4];
+			seamCarver->GetImageData(buffer);
+			QImage image(buffer, imageSize.width(), imageSize.height(), QImage::Format_RGBA8888);
+			image.save(fileName);
+			delete[] buffer;
 		}
 	}
-}
-
-QImage SeamCarverWidget::GetImage() const {
-	QSize imageSize = imageWidget->GetImageSize();
-	return QImage(seamCarver->GetImageData().data(), imageSize.width(), imageSize.height(), QImage::Format_RGBA8888);
 }
 
 void SeamCarverWidget::on_applyButton_clicked() {

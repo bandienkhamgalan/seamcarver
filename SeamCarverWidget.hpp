@@ -20,7 +20,6 @@ public:
 	SeamCarverWidget(QWidget* parent = nullptr);
 	void SetImage(QImage&& image);
 	void resizeEvent(QResizeEvent * event) override;
-	QImage GetImage() const;
 
 	/* FileViewerWidget overrides */
 	void OpenFileAction() override;

@@ -89,18 +89,18 @@ void CLSeamCarver::carve(int columns) {
 	}
 }
 
-vector<cl_uchar> CLSeamCarver::GetImageData() const {
-	auto buffer = new cl_uchar[rowPitch * height * 4];
-	cl_int err = queue.enqueueReadBuffer(imageBuffer, CL_TRUE, 0, imageBuffer.getInfo<CL_MEM_SIZE>(), buffer);
+tuple<int, int> CLSeamCarver::GetImageSize() const {
+	return make_tuple(width, height);
+}
+
+void CLSeamCarver::GetImageData(cl_uchar* buffer) const {
+	auto rawBuffer = new cl_uchar[rowPitch * height * 4];
+	cl_int err = queue.enqueueReadBuffer(imageBuffer, CL_TRUE, 0, imageBuffer.getInfo<CL_MEM_SIZE>(), rawBuffer);
 	assert_throw(err == CL_SUCCESS, "failed to read imageBuffer");
-	auto croppedBuffer = new cl_uchar[width * height * 4];
 	for(int row = 0 ; row < height ; ++row) {
-		memcpy(croppedBuffer + row * width * 4, buffer + row * rowPitch * 4, width * 4);
+		memcpy(buffer + row * width * 4, rawBuffer + row * rowPitch * 4, width * 4);
 	}
-	delete[] buffer;
-	auto data = vector<cl_uchar>(croppedBuffer, croppedBuffer + width * height * 4);
-	delete[] croppedBuffer;
-	return data;
+	delete[] rawBuffer;
 }
 
 cl::Program CLSeamCarver::constructProgram() const {

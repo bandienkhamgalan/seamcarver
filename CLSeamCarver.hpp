@@ -1,13 +1,19 @@
 #pragma once
 #include <string>
 #include <array>
+#include <tuple>
 #include "cl.hpp"
 
 class CLSeamCarver {
 public:
 	CLSeamCarver(cl::Context context, cl::Device device, cl::Buffer imageBuffer, int width, int height);
-	std::vector<cl_uchar> GetImageData() const;
+	/* Saves data in image buffer to specified buffer in row-major format.
+	   Caller is responsible for making sure that buffer is large enough to contain image. 
+	   Required size in bytes in width * height * 4 (call GetImageSize() to get width and height)  */
+	void GetImageData(cl_uchar* buffer) const;
 	void carve(int columns);
+	/* Returns current dimensions of image in buffer as (width, height) tuple */
+	std::tuple<int, int> GetImageSize() const;
 
 private:
 	cl::Program constructProgram() const;
